@@ -7,11 +7,17 @@
 // 4. make an assertion about the changes
 describe("First test", function () {
   it("Visits the SignUp page", function () {
-    cy.visit("http://localhost:3000/signup");
+    cy.visit("/signup");
     cy.contains("Browse Projects").click();
 
     cy.url().should("include", "/projects");
   });
 
-  it("Visit projects page and ");
+
+  it("Visit the projects page and click new project button", function() {
+    cy.visit("/projects");
+    cy.contains("+ New Project").click();
+
+    cy.url().should("include", "/projects/new")
+  })
 });
